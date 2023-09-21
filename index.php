@@ -9,11 +9,15 @@ $host = "localhost";
 $user = getenv("databaseuser");
 $pass = getenv("databasepassword");
 $db = getenv("databasename");
+$bgcolora = getenv("bgcolora");
+$bgcolorb = getenv("bgcolorb");
+$bgcolorc = getenv("bgcolorc");
+echo "BGCOLOR - " . $bgcolora;
 
 
 
 if (getenv("bgcolora") !== true) echo "<div class='sectiona'>";
-else echo "<div class='sectiona' style='background-color:" . getenv("bgcolora") . ";'>";
+else echo "<div class='sectiona' style='background-color:" . $bgcolora . ";'>";
 if (getenv("message") !== true) echo "Hello to my web page!";
 else echo getenv("message");
 echo "</div>";
