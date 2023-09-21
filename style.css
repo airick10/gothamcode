@@ -12,7 +12,7 @@
 .sectionb
 {
     width: 50%;
-    height: 100%;
+    height: auto;
     background-color: #FDBE8C;
     float: left;
     font-family: 'Open Sans', sans-serif;
@@ -21,7 +21,7 @@
 .sectionc
 {
     width: 50%;
-    height: 100%;
+    height: auto;
     background-color: #8CFD9F;
     float: right;
     font-family: 'Lato', sans-serif;

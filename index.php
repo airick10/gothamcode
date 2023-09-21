@@ -32,18 +32,21 @@ echo "<div style='width:100%;height:80%;'>";
         $fp = fopen($fileName, "r");
         if ( !$fp ) {
             throw new Exception('File open failed.');
-        }  
-        echo "<table><caption>CSV</caption><tr>";
-        echo "<b><td>Villian</td><td>Name</td><td>Crimes</td><td>Henchmen</td></b>";
-        echo "</tr>";
+        }
+        $header = true;  
+        echo "<table><caption>CSV</caption>";
         $file = fopen('GothamCSV.csv', 'r') or die(print_r(error_get_last(),true));;
         while (($data = fgetcsv($file)) !== FALSE) {
-            echo "<tr>";
-            echo "<td>" . $data[1] . "</td>";
-            echo "<td>" . $data[2] . " " . $data[3] . "</td>";
-            echo "<td>" . $data[6] . "</td>";  
-            echo "<td>" . $data[7] . "</td>";
-            echo "</tr>";
+            if ($header) echo "<tr><td style='font-weight:bold;'>Villian</td><td style='font-weight:bold;'>Name</td><td style='font-weight:bold;'>Crimes</td><td style='font-weight:bold;'>Henchmen</td></tr>";
+            else {
+                echo "<tr>";
+                echo "<td>" . $data[1] . "</td>";
+                echo "<td>" . $data[2] . " " . $data[3] . "</td>";
+                echo "<td>" . $data[6] . "</td>";  
+                echo "<td>" . $data[7] . "</td>";
+                echo "</tr>";
+            }
+            $header = false;
         }
         fclose($file);
         echo "</table>";
