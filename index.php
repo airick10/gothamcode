@@ -28,7 +28,7 @@ echo "</div>";
 
 echo "<div style='width:100%;height:80%;'>";
     if (!isset($_ENV["bgcolorb"])) echo "<div class='sectionb'>";
-    else echo "<div class='sectionb' style='background-color:" . $_ENV["bgcolora"] . ";'>";
+    else echo "<div class='sectionb' style='background-color:" . $_ENV["bgcolorb"] . ";'>";
     try
     {
         $fileName = 'GothamCSV.csv';
