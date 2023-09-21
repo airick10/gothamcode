@@ -1,0 +1,21 @@
+﻿ID,Villian,FirstName,LastName,Gender,Age,Crimes,Caught,Henchmen
+1,Joker,Jack,Napier,Male,45,233,28,35
+2,Catwoman,Selena,Kyle,Female,28,89,15,8
+3,Two-Face,Harvey,Dent,Male,54,112,21,45
+4,Penguin,Oswald,Copplepot,Male,58,145,33,54
+5,Riddler,Edward,Nigma,Male,31,75,14,25
+6,Mr. Freeze,Victor,Fries,Male,50,54,15,34
+7,Bane,,,Male,38,202,22,18
+8,Black Mask,Roman,Sionis,Male,47,198,41,75
+9,Clayface,Basil,Karlo,Male,34,32,8,5
+10,Harley Quinn,Harleen,Quinzel,Female,24,82,30,20
+11,Deadshot,Floyd,Lawton,Male,39,133,12,5
+12,Killer Croc,Waylon,Jones,Male,34,73,20,11
+13,Mad Hatter,Jervis,Tetch,Male,62,63,12,48
+14,Scarecrow,Jonathan,Crane,Male,46,77,19,32
+15,Poison Ivy,Pamela,Isley,Female,32,104,27,73
+16,Zsasz,Victor,Zsasz,Male,43,88,22,32
+17,Ras Al Ghul,Ras,Al Ghul,Male,650,1143,89,243
+18,Hugo Strange,Hugo,Strange,Male,65,64,19,53
+19,Firefly,Garfield,Lynns,Male,38,74,21,21
+20,Man-Bat,Kirk,Langstrom,Male,45,56,14,3
