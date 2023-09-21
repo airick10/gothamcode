@@ -23,7 +23,11 @@ if (!isset($_ENV['message'])) { echo "Hello to my web page!";
     $command = "python python\hello.py";
     $variable = shell_exec($command);
 }
-else echo $_ENV['message'];
+else echo {
+    $_ENV['message'];
+    $command = "python python\hello.py";
+    $variable = shell_exec($command);
+}
 echo "</div>";
 
 echo "<div style='width:100%;height:80%;'>";
