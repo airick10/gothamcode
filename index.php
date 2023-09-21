@@ -18,7 +18,10 @@ echo "BGCOLORX - " . $bgcolora;
 
 if (getenv("bgcolora") !== true) echo "<div class='sectiona'>";
 else echo "<div class='sectiona' style='background-color:" . $bgcolora . ";'>";
-if (getenv("message") !== true) echo "Hello to my web page!";
+if (getenv("message") !== true) { echo "Hello to my web page!";
+    $command = "python python\hello.py";
+    $variable = shell_exec($command);
+}
 else echo getenv("message");
 echo "</div>";
 
