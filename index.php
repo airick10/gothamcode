@@ -9,25 +9,26 @@ $host = "localhost";
 $user = getenv("databaseuser");
 $pass = getenv("databasepassword");
 $db = getenv("databasename");
-$bgcolora = $_ENV["bgcolora"];
-$bgcolorb = getenv("bgcolorb");
-$bgcolorc = getenv("bgcolorc");
-echo "BGCOLORX - " . $bgcolora;
+//$bgcolora = $_ENV["bgcolora"];
+//$bgcolorb = $_ENV["bgcolorb"];
+//$bgcolorc = $_ENV["bgcolorc"];
+//$messsage = $_ENV["message"];
+//echo "BGCOLORX - " . $bgcolora;
 
 
 
-if (getenv("bgcolora") !== true) echo "<div class='sectiona'>";
-else echo "<div class='sectiona' style='background-color:" . $bgcolora . ";'>";
-if (getenv("message") !== true) { echo "Hello to my web page!";
+if (!isset($_ENV["bgcolora"])) echo "<div class='sectiona'>";
+else echo "<div class='sectiona' style='background-color:" . $_ENG["bgcolora"] . ";'>";
+if (!isset($_ENV['message'])) { echo "Hello to my web page!";
     $command = "python python\hello.py";
     $variable = shell_exec($command);
 }
-else echo getenv("message");
+else echo $_ENG['message'];
 echo "</div>";
 
 echo "<div style='width:100%;height:80%;'>";
-    if (getenv("bgcolorb") !== true) echo "<div class='sectionb'>";
-    else echo "<div class='sectionb' style='background-color:" . getenv("bgcolorb") . ";'>";
+    if (!isset($_ENV["bgcolorb"])) echo "<div class='sectionb'>";
+    else echo "<div class='sectionb' style='background-color:" . $_ENG["bgcolora"] . ";'>";
     try
     {
         $fileName = 'GothamCSV.csv';
@@ -64,8 +65,8 @@ echo "<div style='width:100%;height:80%;'>";
     } 
     echo "</div>";
 
-    if (getenv("bgcolorc") !== true) echo "<div class='sectionc'>";
-    else echo "<div class='sectionc' style='background-color:" . getenv("bgcolorc") . ";'>";
+    if (!isset($_ENV["bgcolorc"])) echo "<div class='sectionc'>";
+    else echo "<div class='sectionc' style='background-color:" . $_ENG["bgcolora"] . ";'>";
     $con = mysqli_connect($host, $user, $pass);
 
     mysqli_select_db($con, "gotham_db");
