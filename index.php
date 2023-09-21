@@ -21,61 +21,61 @@ echo "</div>";
 echo "<div style='width:100%;height:80%;'>";
     if (getenv("bgcolorb") !== true) echo "<div class='sectionb'>";
     else echo "<div class='sectionb' style='background-color:" . getenv("bgcolorb") . ";'>";
-        $con = mysqli_connect($host, $user, $pass);
-
-        mysqli_select_db($con, "gotham_db");
-
-        if (!$con) print ("Not Connected<br>".mysqli_error());
-        else {
-            echo "<table><caption>DB</caption><tr>";
-            echo "<b><td>Villian</td><td>Name</td><td>Crimes</td><td>Henchmen</td></b>";
+    try
+    {
+        $fileName = 'GothamCSV.csv';
+        
+        if ( !file_exists($fileName) ) {
+            throw new Exception('File not found.');
+        }
+        
+        $fp = fopen($fileName, "r");
+        if ( !$fp ) {
+            throw new Exception('File open failed.');
+        }  
+        echo "<table><caption>CSV</caption><tr>";
+        echo "<b><td>Villian</td><td>Name</td><td>Crimes</td><td>Henchmen</td></b>";
+        echo "</tr>";
+        $file = fopen('GothamCSV.csv', 'r') or die(print_r(error_get_last(),true));;
+        while (($data = fgetcsv($file)) !== FALSE) {
+            echo "<tr>";
+            echo "<td>" . $data[1] . "</td>";
+            echo "<td>" . $data[2] . " " . $data[3] . "</td>";
+            echo "<td>" . $data[6] . "</td>";  
+            echo "<td>" . $data[7] . "</td>";
             echo "</tr>";
-            $request = mysqli_query($con, "SELECT Villian, FirstName, LastName, Crimes, Henchmen FROM Villians") or die("Could not connect: " . mysqli_error()); ;
-            while($row = mysqli_fetch_array($request)) {
-                echo "<tr>";
-                echo "<td>" . $row['Villian'] . "</td>";
-                echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
-                echo "<td>" . $row['Crimes'] . "</td>";
-                echo "<td>" . $row['Henchmen'] . "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-        }	
+        }
+        fclose($file);
+        echo "</table>";
+        fclose($fp);
+    } 
+    catch ( Exception $e ) {
+        echo "Error printing CSV data";
+    } 
     echo "</div>";
 
     if (getenv("bgcolorc") !== true) echo "<div class='sectionc'>";
     else echo "<div class='sectionc' style='background-color:" . getenv("bgcolorc") . ";'>";
-        try
-        {
-            $fileName = 'GothamCSV.csv';
-            
-            if ( !file_exists($fileName) ) {
-                throw new Exception('File not found.');
-            }
-            
-            $fp = fopen($fileName, "r");
-            if ( !$fp ) {
-                throw new Exception('File open failed.');
-            }  
-            echo "<table><caption>CSV</caption><tr>";
-            echo "<b><td>Villian</td><td>Name</td><td>Crimes</td><td>Henchmen</td></b>";
+    $con = mysqli_connect($host, $user, $pass);
+
+    mysqli_select_db($con, "gotham_db");
+
+    if (!$con) print ("Not Connected<br>".mysqli_error());
+    else {
+        echo "<table><caption>DB</caption><tr>";
+        echo "<b><td>Villian</td><td>Name</td><td>Crimes</td><td>Henchmen</td></b>";
+        echo "</tr>";
+        $request = mysqli_query($con, "SELECT Villian, FirstName, LastName, Crimes, Henchmen FROM Villians") or die("Could not connect: " . mysqli_error()); ;
+        while($row = mysqli_fetch_array($request)) {
+            echo "<tr>";
+            echo "<td>" . $row['Villian'] . "</td>";
+            echo "<td>" . $row['FirstName'] . " " . $row['LastName'] . "</td>";
+            echo "<td>" . $row['Crimes'] . "</td>";
+            echo "<td>" . $row['Henchmen'] . "</td>";
             echo "</tr>";
-            $file = fopen('GothamCSV.csv', 'r') or die(print_r(error_get_last(),true));;
-            while (($data = fgetcsv($file)) !== FALSE) {
-                echo "<tr>";
-                echo "<td>" . $data[1] . "</td>";
-                echo "<td>" . $data[2] . " " . $data[3] . "</td>";
-                echo "<td>" . $data[6] . "</td>";  
-                echo "<td>" . $data[7] . "</td>";
-                echo "</tr>";
-            }
-            fclose($file);
-            echo "</table>";
-            fclose($fp);
-        } 
-        catch ( Exception $e ) {
-            echo "Error printing CSV data";
-        } 
+        }
+        echo "</table>";
+    }	
     echo "</div>";
 echo "</div>";
 ?>
