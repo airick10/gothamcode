@@ -9,10 +9,10 @@ $host = "localhost";
 $user = getenv("databaseuser");
 $pass = getenv("databasepassword");
 $db = getenv("databasename");
-$bgcolora = getenv("bgcolora");
+$bgcolora = $_ENV["bgcolora"];
 $bgcolorb = getenv("bgcolorb");
 $bgcolorc = getenv("bgcolorc");
-echo "BGCOLOR - " . $bgcolora;
+echo "BGCOLORX - " . $bgcolora;
 
 
 
