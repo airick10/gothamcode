@@ -1,0 +1,28 @@
+.sectiona
+{
+    width:100%;
+    height:20%;
+    background-color:#BAE4FA;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sectionb
+{
+    width: 50%;
+    height: 100%;
+    background-color: #FDBE8C;
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sectionc
+{
+    width: 50%;
+    height: 100%;
+    background-color: #8CFD9F;
+    float: right;
+    font-family: 'Lato', sans-serif;
+}
