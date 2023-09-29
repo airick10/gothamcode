@@ -7,10 +7,10 @@
 <body>
 <?php
 // Getting Database Variables
-$host = "localhost";
-$user = getenv("databaseuser");
-$pass = getenv("databasepassword");
-$db = getenv("databasename");
+//$host = "localhost";
+$user = $_ENV["databaseuser"]
+$pass = $_ENV["databasepassword"];
+$db = $_ENV["databasename"];
 
 if (!isset($_ENV["bgcolora"])) {
     echo "<div class='sectiona'>";
@@ -81,7 +81,7 @@ if (!isset($_ENV["bgcolorc"])) {
     echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
 }
 
-$con = mysqli_connect($host, $user, $pass, $db);
+$con = mysqli_connect($user, $pass, $db);
 
 if (!$con) {
     print ("Not Connected<br>" . mysqli_error());
