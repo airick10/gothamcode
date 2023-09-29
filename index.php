@@ -78,6 +78,10 @@ echo "<div style='width:100%;height:80%;'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
     echo $user . " - " . $pass . " - " . $db . "<br>";
     $con = mysqli_connect($user, $pass, $db);
+    if ($con -> connect_errno) {
+    echo "Failed to connect to MySQL: " . $con -> connect_error;
+    exit();
+}
 
     mysqli_select_db($con, "gotham_db");
 
