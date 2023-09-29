@@ -6,10 +6,10 @@
 <?php
 if (function_exists('mysql_connect'))
    echo 'MYSQL functions are available';
-else echo 'mysql failed.'
+else echo 'mysql failed.';
 if (function_exists('mysqli_connect'))
    echo 'MYSQLi functions are available';
-else echo 'mysqli failed.'
+else echo 'mysqli failed.';
 //Getting Database Variables
 //$host = "localhost";
 //$user = $_ENV["databaseuser"];
