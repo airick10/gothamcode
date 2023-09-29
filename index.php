@@ -76,7 +76,7 @@ echo "<div style='width:100%;height:80%;'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
     $con = mysqli_connect("localhost", $user, $pass, $db);
 
-    mysqli_select_db($con, "gotham_db");
+    mysqli_select_db($con, "eric_db");
 
     if (!$con) print ("Not Connected<br>".mysqli_error());
     else {
