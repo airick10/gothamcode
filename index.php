@@ -4,28 +4,10 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <body>
 <?php
-if (function_exists('mysql_connect'))
-   echo 'MYSQL functions are available';
-else echo 'mysql failed.';
-if (function_exists('mysqli_connect'))
-   echo 'MYSQLi functions are available';
-else echo 'mysqli failed.';
 //Getting Database Variables
-//$host = "localhost";
-//$user = $_ENV["databaseuser"];
-//$pass = $_ENV["databasepassword"];
-//$db = $_ENV["databasename"];
-//$user = getenv("databaseuser");
-//$pass = getenv("databasepassword");
-//$db = getenv("databasename");
-$user = getenv("MYSQL_USER");
-$pass = getenv("MYSQL_PASSWORD");
-$db = getenv("MYSQL_DATABASE");
-//$bgcolora = $_ENV["bgcolora"];
-//$bgcolorb = $_ENV["bgcolorb"];
-//$bgcolorc = $_ENV["bgcolorc"];
-//$messsage = $_ENV["message"];
-//echo "BGCOLORX - " . $bgcolora;
+$user = getenv("databaseuser");
+$pass = getenv("databasepassword");
+$db = getenv("databasename");
 
 
 
@@ -88,7 +70,7 @@ echo "<div style='width:100%;height:80%;'>";
     echo $user . " - " . $pass . " - " . $db . "<br>";
     $con = mysqli_connect($user, $pass);
     if ($con -> connect_errno) {
-    echo "Failed to connect to MySQL - Friday: " . $con -> connect_error;
+    echo "Failed to connect to MySQL: " . $con -> connect_error;
     exit();
 }
 
