@@ -6,12 +6,12 @@
 <?php
 //Getting Database Variables
 //$host = "localhost";
-$user = $_ENV["databaseuser"];
-$pass = $_ENV["databasepassword"];
-$db = $_ENV["databasename"];
-//$user = getenv("databaseuser");
-//$pass = getenv("databasepassword");
-//$db = getenv("databasename");
+//$user = $_ENV["databaseuser"];
+//$pass = $_ENV["databasepassword"];
+//$db = $_ENV["databasename"];
+$user = getenv("databaseuser");
+$pass = getenv("databasepassword");
+$db = getenv("databasename");
 //$bgcolora = $_ENV["bgcolora"];
 //$bgcolorb = $_ENV["bgcolorb"];
 //$bgcolorc = $_ENV["bgcolorc"];
