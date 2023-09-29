@@ -24,12 +24,14 @@ if (!isset($_ENV["bgcolora"])) echo "<div class='sectiona'>";
 else echo "<div class='sectiona' style='background-color:" . $_ENV["bgcolora"] . ";'>";
 if (!isset($_ENV["message"])) { echo "Hello to my web page!";
     $command = "python python\hello.py";
-    $variable = shell_exec($command);
+    $result = shell_exec($command);
+    echo $result;
 }
 else {
     echo $_ENV['message'];
     $command = "python python\hello.py";
-    $variable = shell_exec($command);
+    $result = shell_exec($command);
+    echo $result;
 }
 echo "</div>";
 
@@ -74,6 +76,7 @@ echo "<div style='width:100%;height:80%;'>";
 
     if (!isset($_ENV["bgcolorc"])) echo "<div class='sectionc'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
+    echo $user . " - " . $pass . " - " . $db . "<br>";
     $con = mysqli_connect("localhost", $user, $pass, $db);
 
     mysqli_select_db($con, "gotham_db");
