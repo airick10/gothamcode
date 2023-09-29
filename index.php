@@ -74,7 +74,7 @@ echo "<div style='width:100%;height:80%;'>";
 
     if (!isset($_ENV["bgcolorc"])) echo "<div class='sectionc'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
-    $con = mysqli_connect($user, $pass, $db);
+    $con = mysqli_connect("localhost", $user, $pass, $db);
 
     mysqli_select_db($con, "gotham_db");
 
