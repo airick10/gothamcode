@@ -4,6 +4,8 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <body>
 <?php
+if (function_exists('mysql_connect'))
+   echo 'MYSQL functions are available';
 //Getting Database Variables
 //$host = "localhost";
 //$user = $_ENV["databaseuser"];
