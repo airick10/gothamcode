@@ -83,13 +83,13 @@ echo "<div style='width:100%;height:80%;'>";
     if (!isset($_ENV["bgcolorc"])) echo "<div class='sectionc'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
     echo $user . " - " . $pass . " - " . $db . "<br>";
-    $con = mysqli_connect($user, $pass, $db);
+    $con = mysqli_connect($user, $pass);
     if ($con -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $con -> connect_error;
+    echo "Failed to connect to MySQL - Friday: " . $con -> connect_error;
     exit();
 }
 
-    mysqli_select_db($con, "gotham_db");
+    mysqli_select_db($con, $db);
 
     if (!$con) print ("Not Connected<br>".mysqli_error());
     else {
