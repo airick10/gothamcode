@@ -1,74 +1,50 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+.sectiona
+{
+    width:100%;
+    height:20%;
+    background-color:#BAE4FA;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sectionb
+{
+    width: 50%;
+    height: auto;
+    background-color: #FDBE8C;
+    float: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sectionc
+{
+    width: 50%;
+    height: auto;
+    background-color: #8CFD9F;
+    float: right;
+    font-family: 'Lato', sans-serif;
+}    
+</style>
 <body>
 <?php
 //Getting Database Variables
-$user = getenv("databaseuser");
-$pass = getenv("databasepassword");
-$db = getenv("databasename");
+$user = getenv("MYSQL_USERNAME");
+$pass = getenv("MYSQL_PASSWORD");
+$db = getenv("MYSQL_DATABASE");
 
 
 
-if (!isset($_ENV["bgcolora"])) echo "<div class='sectiona'>";
-else echo "<div class='sectiona' style='background-color:" . $_ENV["bgcolora"] . ";'>";
-if (!isset($_ENV["message"])) { echo "Hello to my web page!";
-    $command = "python python\hello.py";
-    $result = shell_exec($command);
-    echo $result;
-}
-else {
-    echo $_ENV['message'];
-    $command = "python python\hello.py";
-    $result = shell_exec($command);
-    echo $result;
-}
-echo "</div>";
-
-echo "<div style='width:100%;height:80%;'>";
-    if (!isset($_ENV["bgcolorb"])) echo "<div class='sectionb'>";
-    else echo "<div class='sectionb' style='background-color:" . $_ENV["bgcolorb"] . ";'>";
-    try
-    {
-        $fileName = 'GothamCSV.csv';
-        
-        if ( !file_exists($fileName) ) {
-            throw new Exception('File not found.');
-        }
-        
-        $fp = fopen($fileName, "r");
-        if ( !$fp ) {
-            throw new Exception('File open failed.');
-        }
-        $header = true;  
-        echo "<table><caption>CSV</caption>";
-        $file = fopen('GothamCSV.csv', 'r') or die(print_r(error_get_last(),true));;
-        while (($data = fgetcsv($file)) !== FALSE) {
-            if ($header) echo "<tr><td style='font-weight:bold;'>Villian</td><td style='font-weight:bold;'>Name</td><td style='font-weight:bold;'>Crimes</td><td style='font-weight:bold;'>Henchmen</td></tr>";
-            else {
-                echo "<tr>";
-                echo "<td>" . $data[1] . "</td>";
-                echo "<td>" . $data[2] . " " . $data[3] . "</td>";
-                echo "<td>" . $data[6] . "</td>";  
-                echo "<td>" . $data[7] . "</td>";
-                echo "</tr>";
-            }
-            $header = false;
-        }
-        fclose($file);
-        echo "</table>";
-        fclose($fp);
-    } 
-    catch ( Exception $e ) {
-        echo "Error printing CSV data";
-    } 
-    echo "</div>";
 
     if (!isset($_ENV["bgcolorc"])) echo "<div class='sectionc'>";
     else echo "<div class='sectionc' style='background-color:" . $_ENV["bgcolorc"] . ";'>";
     echo $user . " - " . $pass . " - " . $db . "<br>";
-    $con = mysqli_connect($user, $pass);
+    $con = mysqli_connect("mysql-service", $user, $pass);
     if ($con -> connect_errno) {
     echo "Failed to connect to MySQL: " . $con -> connect_error;
     exit();
